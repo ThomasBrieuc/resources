@@ -1,0 +1,314 @@
+/* Style général */
+body {
+    font-family: "Space Grotesk", sans-serif;
+    margin: 20px;
+    background-color: #ffffff;
+    color: #2D2D2D;
+    text-align: center;
+}
+
+/* ASCII Text in Blue */
+.ascii-title {
+    color: #0023d4; /* Bleu */
+    font-family: monospace;
+    white-space: pre;
+    font-size: 18px;
+    text-align: center;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Grille du sommaire */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+.category-card {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrage horizontal */
+    gap: 8px;
+    background-color: #0023d4;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s;
+    white-space: nowrap; /* Empêche le retour à la ligne */
+}
+
+.category-card i {
+    font-size: 20px;
+    flex-shrink: 0; /* Empêche l'icône de rétrécir */
+}
+
+.category-card span {
+    flex-grow: 1; /* Permet au texte de s'adapter sans forcer un retour à la ligne */
+    text-align: left;
+}
+
+.category-card:hover {
+    background-color: #0018a8;
+}
+
+
+/* Cartes des catégories */
+.category-card {
+    display: flex;
+    flex-direction: row; /* Aligne les éléments horizontalement */
+    align-items: center;
+    justify-content: center;
+    background-color: #0023d4;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: 0.3s ease-in-out;
+    gap: 16px /* Ajoute un espace entre l'icône et le texte */
+}
+
+.category-card i {
+    font-size: 30px;
+    margin-bottom: 0; /* Supprime la marge verticale */
+}
+
+.category-card:hover {
+    background-color: #0019a8;
+}
+
+/* Sections des ressources */
+.resources-section {
+    margin-top: 40px;
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.resources-section h2 {
+    color: #0023d4;
+    margin-bottom: 10px;
+}
+
+/* Uniformisation des tableaux */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0; /* Ajout de marges uniformes */
+}
+
+th, td {
+    padding: 10px; /* Uniformiser l'espacement */
+    text-align: left;
+}
+
+th {
+    background-color: transparent;
+    color: #0023d4;
+    border-top: 2px solid transparent; /* Ajouter une bordure pour séparer l'entête */
+    border-bottom: 1px solid #0023d4; /* Ajouter une bordure pour séparer le corps */
+}
+
+td {
+    border-bottom: 1px solid #ddd; /* Séparation fine entre les lignes de données */
+}
+
+tr:last-child td {
+    border-bottom: none; /* Enlever la bordure en bas du dernier élément */
+}
+
+/* Spécification des largeurs des colonnes */
+th, td {
+    width: auto;
+}
+
+th:nth-child(1), td:nth-child(1) {
+    width: 20%; /* Largeur de la colonne Nom (par exemple) */
+}
+
+th:nth-child(2), td:nth-child(2) {
+    width: 50%; /* Largeur de la colonne Type */
+}
+
+th:nth-child(3), td:nth-child(3) {
+    width: 25%; /* Largeur de la colonne Prix */
+}
+
+th:nth-child(4), td:nth-child(4) {
+    width: 40%; /* Largeur de la colonne Description (plus large) */
+}
+
+h2 {
+    margin-top: 72px;  /* Ajoute une marge de 32px au-dessus de chaque titre h2 */
+}
+
+.filters {
+    display: flex;
+    gap: 15px; /* Espacement entre les filtres */
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 20px; /* Espacement avec le reste du contenu */
+}
+
+.filters label {
+    font-weight: regular;
+    color: #2D2D2D; /* Couleur du texte */
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+/* Pas de hover sur le label */
+.filters label:hover {
+    background-color: transparent;
+}
+
+.filters select {
+    padding: 4px 4px; /* Padding inchangé */
+    border: 1px solid #0023d4; /* Bordure bleue */
+    border-radius: 6px;
+    background-color: #ffffff; /* Fond blanc pour le menu déroulant */
+    color: #2D2D2D
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filters select:hover {
+    background-color: #ffffff
+}
+
+.filters select:focus {
+    outline: none;
+    border-color: #0019a8; /* Bordure bleue plus vif au focus */
+    background-color: #ffffff; /* Fond blanc au focus */
+}
+
+.filters select option:hover {
+    background-color: #ffffff bleu pour l'option sélectionnée */
+    color: #ffffff; /* Texte blanc pour l'option sélectionnée */
+}
+
+
+a {
+    color: #0023d4; /* Bleu par défaut */
+    text-decoration: none; /* Pas de soulignement */
+    transition: color 0.2s ease-in-out; /* Animation fluide du changement de couleur */
+}
+
+a:active {
+    color: #2D2D2D; /* Noir quand actif */
+}
+
+.follow-me {
+    text-align: center;
+    margin-top: 48px;
+    font-size: 18px;
+}
+
+.follow-me p {
+    margin-bottom: 8px;  /* Réduit l'espace sous le paragraphe */
+}
+
+.follow-me a {
+    color: #0023d4;
+    text-decoration: none;
+    font-weight: small
+    margin: 0 10px;  /* Espacement entre les liens */
+    font-size: 16px /* Taille du texte */
+    transition: color 0.3s ease;
+}
+
+.follow-me a:hover {
+    color: #0019a8;
+}
+
+/* Style du footer */
+.footer {
+    color: #0019a8
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-links {
+    margin-top: 76px;
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #0023d4;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: bold; /* Lien en gras */
+    transition: color 0.3s ease
+}
+
+.footer-links a:hover {
+    color: #0019a8;
+}
+
+footer p {
+    margin-top: 16px;
+    font-size: 12px;
+}
+
+/* Styles pour les tags dans la colonne "Type" */
+.type .tag {
+    display: inline-block; /* Utilisation de inline-block pour une meilleure gestion de la largeur */
+    background-color: #0023d4; /* Fond bleu */
+    color: white; /* Texte blanc */
+    padding: 4px 8px; /* Espacement autour du texte */
+    border-radius: 4px; /* Coins arrondis */
+    margin-right: 4px; /* Espacement entre les tags */
+    font-size: 14px; /* Taille du texte */
+    white-space: nowrap; /* Empêche les retours à la ligne */
+    overflow: hidden; /* Cache tout débordement de texte */
+    text-overflow: ellipsis; /* Ajoute une ellipse (...) si le texte est trop long */
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; /* Au lieu de left */
+    width: 50px;
+    height: 50px;
+    background-color: #0023d4;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    background-color: #0018a8;
+    background-color: ;
+}
+
+
+
+
+
+
+

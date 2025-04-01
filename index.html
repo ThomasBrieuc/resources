@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" href="resources/icon.svg" type="image/svg+xml">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My ressources</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <script>
+    
+        // Fonction pour filtrer par Prix
+        function filterByPrice(category, price) {
+            var rows = document.querySelectorAll(`#${category} .resource-row`);
+            rows.forEach(function(row) {
+                var priceCell = row.querySelector('.price');
+                if (priceCell) {
+                    if (price === "All" || priceCell.textContent.includes(price)) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+                }
+            });
+        }
+
+        // Fonction pour filtrer par Type
+        function filterByType(category, type) {
+            var rows = document.querySelectorAll(`#${category} .resource-row`);
+            rows.forEach(function(row) {
+                var typeCell = row.querySelector('.type');
+                if (typeCell) {
+                    if (type === "All" || typeCell.textContent.includes(type)) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+                }
+            });
+        }
+    </script>
+    
+</head>
+<body>
+    <a id="top"></a>
+<div class="container">
+    <!-- Title -->
+    <section class="ascii-title">
+        <pre>
+▄▄▄▄███▄▄▄▄   ▄██   ▄           ▄████████    ▄████████    ▄████████  ▄██████▄  ███    █▄     ▄████████  ▄████████    ▄████████    ▄████████ 
+▄██▀▀▀███▀▀▀██▄ ███   ██▄        ███    ███   ███    ███   ███    ███ ███    ███ ███    ███   ███    ███ ███    ███   ███    ███   ███    ███ 
+███   ███   ███ ███▄▄▄███        ███    ███   ███    █▀    ███    █▀  ███    ███ ███    ███   ███    ███ ███    █▀    ███    █▀    ███    █▀  
+███   ███   ███ ▀▀▀▀▀▀███       ▄███▄▄▄▄██▀  ▄███▄▄▄       ███        ███    ███ ███    ███  ▄███▄▄▄▄██▀ ███         ▄███▄▄▄       ███        
+███   ███   ███ ▄██   ███      ▀▀███▀▀▀▀▀   ▀▀███▀▀▀     ▀███████████ ███    ███ ███    ███ ▀▀███▀▀▀▀▀   ███        ▀▀███▀▀▀     ▀███████████ 
+███   ███   ███ ███   ███      ▀███████████   ███    █▄           ███ ███    ███ ███    ███ ▀███████████ ███    █▄    ███    █▄           ███ 
+███   ███   ███ ███   ███        ███    ███   ███    ███    ▄█    ███ ███    ███ ███    ███   ███    ███ ███    ███   ███    ███    ▄█    ███ 
+▀█   ███   █▀   ▀█████▀         ███    ███   ██████████  ▄████████▀   ▀██████▀  ████████▀    ███    ███ ████████▀    ██████████  ▄████████▀  
+        </pre>
+    </section>
+    <style>
+        .ascii-title {
+            text-align: center;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 10px;
+            margin: 30px 0;
+        }
+    </style>
+    <!-- Introduction -->
+    <section class="intro">
+        <p class="intro-text">Hello, I'm Brieuc Thomas, a graphic design enthusiast. Throughout my projects, I've often been asked where I find my resources. To answer these recurring requests and centralize all this information, I decided to create this website.</p>
+        <p class="intro-text">Here, you'll find a directory of all the resources I use regularly or have discovered during my research. I hope this site can be useful to you in your own creative projects. Enjoy exploring, and feel free to share your own resources or give me your feedback !</p>
+        <div class="follow-me">
+            <p>Follow my work on:</p>
+            <a href="https://www.instagram.com/bt.dsgn" target="_blank">Instagram</a> ❘
+            <a href="https://www.behance.net/brieuc_thomas" target="_blank">Behance</a> ❘
+            <a href="https://bento.me/brieucthomas" target="_blank">Bento</a>
+        </div>        
+        
+    </section>
+
+    <style>
+        .intro {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+        
+        .intro-text {
+            text-align: left;
+            line-height: 1.6;
+            margin: 0 auto;
+        }
+    </style>
+
+    <!-- Sommaire sous forme de grille -->
+    <div class="summary-grid">
+        <a href="#Colors" class="category-card">
+            <i class="fas fa-palette"></i>
+            <span>Colors</span>
+        </a>
+        <a href="#Typography" class="category-card">   
+            <i class="fas fa-font"></i>
+            <span>Typography</span>
+        </a>
+        <a href="#Images" class="category-card">
+            <i class="fas fa-image"></i>
+            <span>Images</span>
+        </a>
+        <a href="#ia" class="category-card">
+            <i class="fas fa-robot"></i>
+            <span>Artificial Intelligence</span>
+        </a>
+        <a href="#templates" class="category-card">
+            <i class="fas fa-layer-group"></i>
+            <span>Templates</span>
+        </a>
+        <a href="#documentation" class="category-card">
+            <i class="fas fa-book"></i>
+            <span>Documentation</span>
+        </a>
+        <a href="#inspiration" class="category-card">
+            <i class="fas fa-lightbulb"></i>
+            <span>Inspiration</span>
+        </a>
+        <a href="#Games" class="category-card">
+            <i class="fas fa-gamepad"></i>
+            <span>Games</span>
+        </a>
+        <a href="#plugins" class="category-card">
+            <i class="fas fa-plug"></i>
+            <span>Plugins</span>
+        </a>
+    </div>
+
+    <!-- Sections des ressources -->
+    <div class="resources-section">
+       
+       <!-- Colors -->
+<h2 id="Colors"><i class="fas fa-palette"></i> Colors</h2>
+<div class="filters">
+    <label for="typeFilterColors">Filter by type :</label>
+    <select id="typeFilterColors" onchange="filterByType('Colors', this.value)">
+        <option value="All">All</option>
+        <option value="Palette generator">Palette generator</option>
+        <option value="Color palettes">Color palettes</option>
+        <option value="Contrast checker">Contrast checker</option>
+        <option value="Gradients and shades">Gradients and shades</option>
+    </select>
+
+    <label for="priceFilterColors">Filter by price :</label>
+    <select id="priceFilterColors" onchange="filterByPrice('Colors', this.value)">
+        <option value="All">All</option>
+        <option value="Free">Free</option>
+        <option value="Paid">Paid</option>
+        <option value="Freebies">Freebies</option>
+    </select>
+</div>
+
+<table id="Colors">
+    <tr><th>Name</th><th>Description</th><th>Type</th><th>Price</th></tr>
+    <tr class="resource-row"><td><a href="https://color.adobe.com">Adobe Color</a></td><td>Create stunning palettes</td><td class="type"><span class="tag">Palette generator</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://colorhunt.co">Color Hunt</a></td><td>Color Palettes for Designers and Artists</td><td class="type"><span class="tag">Color palettes</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://colorable.jxnblk.com">Colorable</a></td><td>Contrast is the difference</td><td class="type"><span class="tag">Contrast checker</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://mycolor.space">Colorspace</a></td><td>Create palettes from color</td><td class="type"><span class="tag">Color palettes</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://coolors.co">Coolors</a></td><td>The super fast color palettes generator</td><td class="type"><span class="tag">Palette generator</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://foundcolor.co">Found Color</a></td><td>An exploration of accidental color schemes</td><td class="type"><span class="tag">Color palettes</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.happyhues.co">Happy Hues</a></td><td>Curated colors in context</td><td class="type"><span class="tag">Contrast checker</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.realtimecolors.com">Realtime Colors</a></td><td>Visualize colors & fonts on a real site</td><td class="type"><span class="tag">Contrast checker</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.shadergradient.co">Shader Gradient</a></td><td>Animated gradients library</td><td class="type"><span class="tag">Gradient and shades</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://pigment.shapefactory.co">Shape Factory</a></td><td>Browse palettes</td><td class="type"><span class="tag">Color palettes</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://thecolorsofthings.vercel.app">The Colors of Things</a></td><td>Collecting The Colors Of Things</td><td class="type"><span class="tag">Color palettes</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.dayroselane.com/hydrants">The Hydrant Directory</a></td><td>A free design resource created from public infrastructure</td><td class="type"><span class="tag">Color palettes</span></td><td class="price">Free</td></tr>
+
+</table>
+
+<!-- Typography -->
+<h2 id="Typography"><i class="fas fa-font"></i> Typography</h2>
+<div class="filters">
+    <label for="typeFilterTypography">Filter by type :</label>
+    <select id="typeFilterTypography" onchange="filterByType('Typography', this.value)">
+        <option value="All">All</option>
+        <option value="Font librairie">Font librairie</option>
+        <option value="Independant foundrie">Independant foundrie</option>
+        <option value="Font marketplace">Font marketplace</option>
+        <option value="Tools">Tools</option>
+        <option value="Font pairing">Font pairing</option>
+        <option value="Inspiration">Inspiration</option>
+
+    </select>
+
+    <label for="priceFilterTypography">Filter by price :</label>
+    <select id="priceFilterTypography" onchange="filterByPrice('Typography', this.value)">
+        <option value="All">All</option>
+        <option value="Free">Free</option>
+        <option value="Paid">Paid</option>
+        <option value="Freebies">Freebies</option>
+    </select>
+</div>
+
+<table id="Typography">
+    <tr><th>Name</th><th>Description</th><th>Type</th><th>Price</th></tr>
+    <tr class="resource-row"><td><a href="https://fonts.adobe.com">Adobe Fonts</a></td><td>Adobe fonts catalog</td><td class="type"><span class="tag">Font librairie</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://bestfonts.pro">BestFonts</a></td><td>Fonts for websites, graphic editors and operating systems</td><td class="type"><span class="tag">Font marketplace</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://copychar.cc">CopyChar</a></td><td>A basic app that allows you to find and copy special characters</td><td class="type"><span class="tag">Tools</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://dirtylinestudio.com">DirtyLine Studio</a></td><td>Type & graphic design studio</td><td class="type"><span class="tag">Independant foundrie</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://enfont.javierarce.com">Fonderie Terrible</a></td><td>Customize any font</td><td class="type"><span class="tag">Tools</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://fontshub.pro">FontHub</a></td><td>Fonts for websites</td><td class="type"><span class="tag">Font librairie</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://fontjoy.com">Fontjoy</a></td><td>Generate font combinations with deep learning</td><td class="type"><span class="tag">Font pairing</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://fontsinuse.com">Fonts in use</a></td><td>An independent archive of typography</td><td class="type"><span class="tag">Inspiration</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.fontshare.com">FontShare</a></td><td>Growing collection of professional grade fonts</td><td class="type"><span class="tag">Independant foundrie</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://glyphy.io">Glyphy</a></td><td>Copy & paste fancy fonts + cool symbols</td><td class="type"><span class="tag">Tools</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://goodtypefoundry.com">Good Type Foundry</a></td><td>An award winning type foundry</td><td class="type"><span class="tag">Independant foundrie</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://fonts.google.com">Google Fonts</a></td><td>Google fonts catalog</td><td class="type"><span class="tag">Font librairie</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://gumroad.com">GumRoad</a></td><td>Powerful, but simple, e-commerce platform</td><td class="type"><span class="tag">Font marketplace</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://www.monotype.com">Monotype</a></td><td>Fonts library</td><td class="type"><span class="tag">Font librairie</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.poussetafonte.com">Pousse ta fonte</a></td><td>A community based foundry repertory</td><td class="type"><span class="tag">Font librairie</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://emitakahashi.github.io/superglyph-workshop">Superglyph Workshop</a></td><td>Create your own glyph</td><td class="type"><span class="tag">Tools</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.suvatypefoundry.ee">Suva Type Foundry</a></td><td>All of the fonts featured here are designed by students in various workshops</td><td class="type"><span class="tag">Independant foundrie</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://thegoodlineheight.com">The Good Line Height</a></td><td>Automatically calculating the perfect line height for any text & grid combination</td><td class="type"><span class="tag">Tools</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://typescale.com">Typescale</a></td><td>Create stunning typography,generate CSS, and find inspiration</td><td class="type"><span class="tag">Tools</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://typespiration.com">Typespiration</a></td><td>Free Font Combinations and Color Palettes</td><td class="type"><span class="tag">Inspiration</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://velvetyne.fr">Velvetyne</a></td><td>A collective dedicated to typography</td><td class="type"><span class="tag">Independant foundrie</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://xcicero.esad-gv.net">X Cicéro</a></td><td>A students workshops fonts</td><td class="type"><span class="tag">Independant foundrie</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.theleagueofmoveabletype.com">The ligue of moveable</a></td><td>The original, the first,the open-source font foundry.</td><td class="type"><span class="tag">Independant foundrie</span></td><td class="price">Free</td></tr>
+
+</table>
+
+<!-- Images -->
+<h2 id="Images"><i class="fas fa-image"></i> Images</h2>
+<div class="filters">
+    <label for="typeFilterImages">Filter by type :</label>
+    <select id="typeFilterImages" onchange="filterByType('Images', this.value)">
+        <option value="All">All</option>
+        <option value="Stock images">Stock images</option>
+        <option value="Vectors & icons">Vectors & icons</option>
+        <option value="Mockups">Mockups</option>
+        <option value="Textures & patterns">Textures & patterns</option>
+        <option value="Ui elements">Ui elements</option>
+        <option value="Creative tools">Creative tools</option>
+
+    </select>
+
+    <label for="priceFilterImages">Filter by price :</label>
+    <select id="priceFilterImages" onchange="filterByPrice('Images', this.value)">
+        <option value="All">All</option>
+        <option value="Free">Free</option>
+        <option value="Paid">Paid</option>
+        <option value="Freebies">Freebies</option>
+    </select>
+</div>
+
+<table id="Images">
+    <tr><th>Name</th><th>Description</th><th>Type</th><th>Price</th></tr>
+    <tr class="resource-row"><td><a href="https://stock.adobe.com">Adobe Stock</a></td><td>Stock images, videos, photos, and more</td><td class="type"><span class="tag">Stock images</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.asciiart.eu">ASCII art archive</a></td><td>A large collection of ASCII art drawings</td><td class="type"><span class="tag">Creative tools</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://benditomockup.com">Bendito mockup</a></td><td>Iconic mockups for iconic designers</td><td class="type"><span class="tag">Mockups</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://www.charco.design">Charco Illustrations</a></td><td>Premium assets for your web & app projects</td><td class="type"><span class="tag">Vectors & icons</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://9elements.github.io/fancy-border-radius">Fancy border radius</a></td><td>Ui shapes maker</td><td class="type"><span class="tag">Ui elements</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://feathericons.com">Feather icons</a></td><td>Simply beautiful open source icons</td><td class="type"><span class="tag">Vectors & icons</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://fockups.com">Fockups</a></td><td>F*cked up mockups</td><td class="type"><span class="tag">Mockups</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://fontawesome.com">Font Awesome</a></td><td>Take the hassle out of icons in your designs</td><td class="type"><span class="tag">Vectors & icons</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://freebiesbug.com">Freebies Bug</a></td><td>A huge and ever-growing selection of 2110+ Free Design Resources</td><td class="type"><span class="tag">Mockups</span><span class="tag">Vectors & icons</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://freebiesbug.com">Freepik</a></td><td>From stock images and videos to design tools with AI</td><td class="type"><span class="tag">Mockups</span><span class="tag">Stock images</span><span class="tag">Vectors & icons</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://graphicsfamily.com">Graphics Family</a></td><td>FREE Logos, Mock-ups, Graphics & Print Templates</td><td class="type"><span class="tag">Mockups</span><span class="tag">Stock images</span><span class="tag">Vectors & icons</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://intuitivedesignsmy.gumroad.com">Intuitive Designs</a></td><td>Premium assets for your streetwear brand</td><td class="type"><span class="tag">Mockups</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://lordicon.com">Lordicon</a></td><td>Access 26,100+ animated icons</td><td class="type"><span class="tag">Vectors & icons</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://lottiefiles.com">Lottie Files</a></td><td>Create, edit, collaborate and implement animations on websites</td><td class="type"><span class="tag">Ui elements</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://www.ls.graphics">LS graphics</a></td><td>We're pretty good at making great mockups</td><td class="type"><span class="tag">Mockups</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://www.ls.graphics">Magic UI Pro</a></td><td>50+ beautiful sections and templates</td><td class="type"><span class="tag">Ui elements</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://mockups-design.com">Mockup design</a></td><td>I make mockups! For you. For fun. For free</td><td class="type"><span class="tag">Mockups</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.pexels.com">Pexels</a></td><td>The best free stock photos, royalty free images & videos</td><td class="type"><span class="tag">Stock images</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://pixabay.com">Pixabay</a></td><td>Stunning royalty-free images & stock</td><td class="type"><span class="tag">Stock images</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://pixelsurplus.com">Pixel Surplus</a></td><td>Bring your projects to life with the best digital design tools</td><td class="type"><span class="tag">Mockups</span><span class="tag">Stock images</span><span class="tag">Vectors & icons</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://public.work">Public Work</a></td><td>A search engine for public domain content</td><td class="type"><span class="tag">Stock images</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://snazzymaps.com">Snazzy Maps</a></td><td>Repository of different styles for Google Maps</td><td class="type"><span class="tag">Creative tools</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://texturelabs.org">Texturelabs</a></td><td>Textures and technics for art design</td><td class="type"><span class="tag">Textures & patterns</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://thenounproject.com">The Noun Project</a></td><td>Icons and Photos For Everything</td><td class="type"><span class="tag">Stock images</span><span class="tag">Vectors & icons</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://tools.dia.tv">Tools - DIA</a></td><td>Various creative tools</td><td class="type"><span class="tag">Creative tools</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.tooooools.app">Tooooools</a></td><td>Free minimalist and lo-fi effects for image processing online</td><td class="type"><span class="tag">Creative tools</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://unsplash.com">Unsplash</a></td><td>The internet’s source for visuals</td><td class="type"><span class="tag">Stock images</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://fr.vecteezy.com">Vecteezy</a></td><td>Free vectors library</td><td class="type"><span class="tag">Stock images</span><span class="tag">Vectors & icons</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://halftone.xoihazard.com">Vector halftone maker</a></td><td>Convert images to halftone patterns</td><td class="type"><span class="tag">Creative tools</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://psfiles.com">Ps Files</a></td><td>All the Photoshop files available in one place</td><td class="type"><span class="tag">Mockups</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.openfootage.net">Open Footage</a></td><td>HDRI panorama, Timlapse, Textures, 3dscan, smoke fire footage, panorama photography</td><td class="type"><span class="tag">Creative tools</span></td><td class="price">Free</td></tr>
+</table>
+
+<!-- Artificial intelligence -->
+<h2 id="ia"><i class="fas fa-robot"></i> Artificial intelligence</h2>
+<div class="filters">
+    <label for="typeFilteria">Filter by type :</label>
+    <select id="typeFilteria" onchange="filterByType('ia', this.value)">
+        <option value="All">All</option>
+        <option value="Text generation">Text generation</option>
+        <option value="Image generation">Image generation</option>
+
+    </select>
+
+    <label for="priceFilteria">Filter by price :</label>
+    <select id="priceFilteria" onchange="filterByPrice('ia', this.value)">
+        <option value="All">All</option>
+        <option value="Free">Free</option>
+        <option value="Free features">Free features</option>
+        <option value="Paid">Paid</option>
+    </select>
+</div>
+
+<table id="ia">
+    <tr><th>Name</th><th>Description</th><th>Type</th><th>Price</th></tr>
+    <tr class="resource-row"><td><a href="https://chat.openai.com">ChatGPT</a></td><td>Text-generation AI tool</td><td class="type"><span class="tag">Text generation</span></td><td class="price">Free features</td></tr>
+    <tr class="resource-row"><td><a href="https://firefly.adobe.com">Adobe Firefly</a></td><td>AI-powered image and visual effect generator</td><td class="type"><span class="tag">Image generation</span></td><td class="price">Free features</td></tr>
+    <tr class="resource-row"><td><a href="https://www.upscale.media">AI Image Upscaler</a></td><td>Enhance image resolution</td><td class="type"><span class="tag">Image generation</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://convert.leiapix.com">LeiaPix Converter</a></td><td>Transform static images into animated 3D effects</td><td class="type"><span class="tag">Image generation</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.paraphraser.io">Paraphraser</a></td><td>Reformulate a text</td><td class="type"><span class="tag">Text generation</span></td><td class="price">Free features</td></tr>
+    <tr class="resource-row"><td><a href="https://www.speakhuman.today">Speak Human</a></td><td>Generate human-centric microcopy for all purposes</td><td class="type"><span class="tag">Text generation</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://runwayml.com">Runway ML</a></td><td>Create AI-based art and images from text descriptions</td><td class="type"><span class="tag">Image generation</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.artbreeder.com">Artbreeder</a></td><td>Generate images and artworks by blending and editing existing visuals</td><td class="type"><span class="tag">Image generation</span></td><td class="price">Free features</td></tr>
+    <tr class="resource-row"><td><a href="https://www.copy.ai">Copy.ai</a></td><td>AI-powered writing tool to generate marketing and content copy</td><td class="type"><span class="tag">Text generation</span></td><td class="price">Free features</td></tr>
+    <tr class="resource-row"><td><a href="https://www.synthesia.io">Synthesia</a></td><td>AI video generation platform to create realistic videos from text</td><td class="type"><span class="tag">Image generation</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.deepswap.ai">DeepSwap</a></td><td>AI-powered face swap tool for video and images</td><td class="type"><span class="tag">Image generation</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.jasper.ai">Jasper</a></td><td>AI tool for generating high-quality marketing text and blog content</td><td class="type"><span class="tag">Text generation</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.scribbr.com">Scribbr</a></td><td>AI-based plagiarism checker and writing assistant</td><td class="type"><span class="tag">Text generation</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.fotor.com/features/ai-image-generator">Fotor AI Image Generator</a></td><td>AI-powered tool for generating images based on text prompts</td><td class="type"><span class="tag">Image generation</span></td><td class="price">Free features</td></tr>
+</table>
+
+<!-- Templates -->
+<h2 id="templates"><i class="fas fa-layer-group"></i> Templates</h2>
+<div class="filters">
+    <label for="typeFiltertemplates">Filter by software :</label>
+    <select id="typeFiltertemplates" onchange="filterByType('templates', this.value)">
+        <option value="All">All</option>
+        <option value="InDesign">InDesign</option>
+        <option value="Photoshop">Photoshop</option>
+        <option value="Illustrator">Illustrator</option>
+        <option value="After Effect">After Effect</option>
+        <option value="Figma">Figma</option>
+    </select>
+
+    <label for="priceFiltertemplates">Filter by price :</label>
+    <select id="priceFiltertemplates" onchange="filterByPrice('templates', this.value)">
+        <option value="All">All</option>
+        <option value="Free">Free</option>
+        <option value="Freebies">Freebies</option>
+        <option value="Paid">Paid</option>
+    </select>
+</div>
+<table id="templates">
+    <tr><th>Name</th><th>Description</th><th>Software</th><th>Price</th></tr>
+    <tr class="resource-row"><td><a href="https://www.elegantflyer.com">Elegant Flyer</a></td><td>Collection of free psd template</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://www.psdfreebies.com">Psd Freebies</a></td><td>Psd template collection</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://graphicburger.com">Graphic Burger</a></td><td>Tasty design resources made with care for each pixel</td><td class="type"><span class="tag">Photoshop</span><span class="tag">Illustrator</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.elegantflyer.com">Elegant Flyer</a></td><td>Collection of free psd template</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://www.psdfreebies.com">Psd Freebies</a></td><td>Psd template collection</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://graphicburger.com">Graphic Burger</a></td><td>Tasty design resources made with care for each pixel</td><td class="type"><span class="tag">Photoshop</span><span class="tag">Illustrator</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.freepik.com/free-photos-vectors/psd">Freepik</a></td><td>Free PSD templates for banners, mockups, and graphics</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://psdrepo.com/">PSDRepo</a></td><td>Free and premium PSD templates, including flyers and brochures</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://www.vectorstock.com/">VectorStock</a></td><td>A vast collection of vector templates and graphics for Illustrator</td><td class="type"><span class="tag">Illustrator</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.graphicriver.net/">GraphicRiver</a></td><td>Premium Illustrator templates and vector resources</td><td class="type"><span class="tag">Illustrator</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.motionarray.com/">Motion Array</a></td><td>A marketplace for After Effects templates, plugins, and stock footage</td><td class="type"><span class="tag">After Effects</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://videohive.net/">VideoHive</a></td><td>Premium After Effects templates for motion graphics and video editing</td><td class="type"><span class="tag">After Effects</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.figma.com/community">Figma Community</a></td><td>A wide range of free and paid Figma templates and design systems</td><td class="type"><span class="tag">Figma</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://figmadesignsystems.com/">Figma Design Systems</a></td><td>Design systems and templates for Figma, ideal for creating UI kits</td><td class="type"><span class="tag">Figma</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://indesignsecrets.com/">InDesignSecrets</a></td><td>A collection of articles, tutorials, and templates for InDesign users</td><td class="type"><span class="tag">InDesign</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://stock.adobe.com/in/">Adobe Stock - InDesign Templates</a></td><td>High-quality InDesign templates for brochures, magazines, and business cards</td><td class="type"><span class="tag">InDesign</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.creativemarket.com/">Creative Market</a></td><td>Design templates for Photoshop, Illustrator, InDesign, and more</td><td class="type"><span class="tag">Photoshop</span><span class="tag">Illustrator</span><span class="tag">InDesign</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.templatemonster.com/">TemplateMonster</a></td><td>A marketplace for web and graphic design templates</td><td class="type"><span class="tag">Photoshop</span><span class="tag">Illustrator</span><span class="tag">Figma</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.envato.com/">Envato Elements</a></td><td>Unlimited access to premium design assets, including templates for all major design software</td><td class="type"><span class="tag">Photoshop</span><span class="tag">Illustrator</span><span class="tag">After Effects</span><span class="tag">Figma</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.pexels.com/">Pexels</a></td><td>Free stock photos and templates for various design software</td><td class="type"><span class="tag">Photoshop</span><span class="tag">Illustrator</span><span class="tag">Figma</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.canva.com/">Canva</a></td><td>A wide variety of templates for non-designers and professionals alike</td><td class="type"><span class="tag">Figma</span><span class="tag">Photoshop</span></td><td class="price">Freebies</td></tr>
+    <tr class="resource-row"><td><a href="https://www.mockupworld.co/">Mockup World</a></td><td>Free, high-quality PSD mockups for Photoshop</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.mockupfree.co/">Mockup Free</a></td><td>Free PSD mockups for branding and packaging design</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.freepsdfiles.net/">Free PSD Files</a></td><td>Free PSD templates for websites, business cards, brochures, and more</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.freepik.com/free-psd">Freepik - PSD Templates</a></td><td>Free PSD templates for flyers, banners, and social media</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.graphicburger.com/">Graphic Burger</a></td><td>Tasty design resources made with care for each pixel</td><td class="type"><span class="tag">Photoshop</span><span class="tag">Illustrator</span><span class="tag">Figma</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.creativebloq.com/">Creative Bloq</a></td><td>Design inspiration and resources, including templates for various software</td><td class="type"><span class="tag">Photoshop</span><span class="tag">Figma</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.templatemonster.com/category/graphic-templates/">TemplateMonster - Graphic Templates</a></td><td>Graphic design templates for web and print</td><td class="type"><span class="tag">Photoshop</span><span class="tag">Illustrator</span></td><td class="price">Paid</td></tr>
+</table>
+
+<!-- Documentation -->
+<h2 id="documentation"><i class="fas fa-book"></i> Documentation</h2>
+<div class="filters">
+    <label for="typeFilterDocumentation">Filter by type :</label>
+    <select id="typeFilterDocumentation" onchange="filterByType('documentation', this.value)">
+        <option value="All">All</option>
+        <option value="Learning">Learning</option>
+        <option value="Blog">Blog</option>
+        <option value="Tool">Tool</option>
+    </select>
+
+    <label for="priceFilterDocumentation">Filter by price :</label>
+    <select id="priceFilterDocumentation" onchange="filterByPrice('documentation', this.value)">
+        <option value="All">All</option>
+        <option value="Free">Free</option>
+        <option value="Free features">Free features</option>
+        <option value="Paid">Paid</option>
+    </select>
+</div>
+<table id="documentation">
+    <tr><th>Name</th><th>Description</th><th>Type</th><th>Price</th></tr>
+    <tr class="resource-row"><td><a href="https://www.a11yproject.com">The A11Y Project</a></td><td>Community-driven effort to make digital accessibility easier.</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://doc.work">Doc!</a></td><td>Art and design association</td><td class="type"><span class="tag">Blog</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://lawsofux.com">Laws of ux</a></td><td>Learn Psychology to Design Better Products & Services</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://humanebydesign.com">Humane by Design</a></td><td>Guidance for designing humane digital products</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://jgthms.com/web-design-in-4-minutes">Web Design in 4 minutes</a></td><td>How to create website step by step</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://content-first.fr">Content First</a></td><td>Collective of content experts</td><td class="type"><span class="tag">Blog</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.checklist.design">Checklist Design</a></td><td>A collection of the best design practices</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.casestudy.club">Case Study Club</a></td><td>Learn how people design digital products</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://littlebigdetails.com">Little Big Details</a></td><td>Curated collection of the finer details of design</td><td class="type"><span class="tag">Blog</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://web.dev">Web Dev</a></td><td>Web courses</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://tympanus.net/codrops">Codrops</a></td><td>A destination for web design and development enthusiasts</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.websitecarbon.com">Website Carbon calculator</a></td><td>Estimate your web page carbon footprint</td><td class="type"><span class="tag">Tool</span></td><td class="price">Free</td></tr>
+</table>
+
+<!-- Inspiration -->
+<h2 id="inspiration"><i class="fas fa-lightbulb"></i> Inspiration</h2>
+<div class="filters">
+    <label for="typeFilterInspiration">Filter by type :</label>
+    <select id="typeFilterInspiration" onchange="filterByType('inspiration', this.value)">
+        <option value="All">All</option>
+        <option value="Design platform">Design platform</option>
+        <option value="UI/UX">UI/UX</option>
+        <option value="News">News</option>
+        <option value="Archive">Archive</option>
+        <option value="Challenge">Challenge</option>
+        <option value="Typography">Typography</option>
+    </select>
+
+    <label for="priceFilterInspiration">Filter by price :</label>
+    <select id="priceFilterInspiration" onchange="filterByPrice('inspiration', this.value)">
+        <option value="All">All</option>
+        <option value="Free">Free</option>
+        <option value="Free features">Free features</option>
+        <option value="Paid">Paid</option>
+    </select>
+</div>
+<table id="inspiration">
+    <tr><th>Name</th><th>Description</th><th>Type</th><th>Price</th></tr>
+    <tr class="resource-row"><td><a href="https://www.a11yproject.com">The A11Y Project</a></td><td>Community-driven effort to make digital accessibility easier.</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://doc.work">Doc!</a></td><td>Art and design association</td><td class="type"><span class="tag">Blog</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://lawsofux.com">Laws of UX</a></td><td>Learn Psychology to Design Better Products & Services</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://humanebydesign.com">Humane by Design</a></td><td>Guidance for designing humane digital products</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://jgthms.com/web-design-in-4-minutes">Web Design in 4 minutes</a></td><td>How to create website step by step</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://content-first.fr">Content First</a></td><td>Collective of content experts</td><td class="type"><span class="tag">Blog</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.checklist.design">Checklist Design</a></td><td>A collection of the best design practices</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.casestudy.club">Case Study Club</a></td><td>Learn how people design digital products</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://littlebigdetails.com">Little Big Details</a></td><td>Curated collection of the finer details of design</td><td class="type"><span class="tag">Blog</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://web.dev">Web Dev</a></td><td>Web courses</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://tympanus.net/codrops">Codrops</a></td><td>A destination for web design and development enthusiasts</td><td class="type"><span class="tag">Learning</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.websitecarbon.com">Website Carbon calculator</a></td><td>Estimate your web page carbon footprint</td><td class="type"><span class="tag">Tool</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.siteinspire.com">Site Inspire</a></td><td>Showcase of the finest web design</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://peoplesgraphicdesignarchive.com">The People’s Graphic Design Archive</a></td><td>Crowd-sourced virtual archive.</td><td class="type"><span class="tag">Archive</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://theresponsive.net">The Responsive</a></td><td>Gallery showcasing the finest responsive design</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.typewolf.com">Typewolf</a></td><td>What’s Trending in Type</td><td class="type"><span class="tag">Typography</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://uibits.com">Ui Bits</a></td><td>UI design inspiration right in your inbox</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://webrief.io">WeBrief</a></td><td>Dozens of free creative briefs to practice with</td><td class="type"><span class="tag">Challenge</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.behance.net">Behance</a></td><td>Adobe social media</td><td class="type"><span class="tag">Design Platforms</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.pinterest.com">Pinterest</a></td><td>Visual discovery engine</td><td class="type"><span class="tag">Design Platforms</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.dribbble.com">Dribbble</a></td><td>Community for designers</td><td class="type"><span class="tag">Design Platforms</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.deviantart.com">DeviantArt</a></td><td>Platform for artists to share</td><td class="type"><span class="tag">Design Platforms</span></td><td class="price">Free features</td></tr>
+<tr class="resource-row"><td><a href="https://www.cosmos.io">Cosmos</a></td><td>Visual discovery engine</td><td class="type"><span class="tag">Design Platforms</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.awwwards.com">Awwwards</a></td><td>Website awards, best web design trends</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.brandnew.com">Brand New</a></td><td>A place for all who value opinion.</td><td class="type"><span class="tag">News</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.brutalistwebsites.com">Brutalist Websites</a></td><td>In its ruggedness and lack of concern to look comfortable or easy</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.mobbin.design">Mobbin</a></td><td>Library of hand-picked mobile design</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free features</td></tr>
+<tr class="resource-row"><td><a href="https://www.lowww.co">Lowww</a></td><td>Directory of lightweight websites</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.figma.com/community">Figma Community</a></td><td>Place to find and share design files</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.savee.com">Savee</a></td><td>Curated collection of design inspirations</td><td class="type"><span class="tag">Design Platforms</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.maxibestof.com">Maxi Best Of</a></td><td>Your Website design inspiration feed</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.land-book.com">Land Book</a></td><td>Website design inspiration gallery</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.godly.com">Godly</a></td><td>Astronomically good web design inspiration</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.footerdesign.com">Footer Design</a></td><td>Footers inspiration</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.mobilenav.com">Navbar Gallery</a></td><td>Find the best navigation inspirations for your design</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.pintrest.com">Pinterest</a></td><td>Visual discovery engine</td><td class="type"><span class="tag">Design Platforms</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.reallygoodemails.com">Really Good Emails</a></td><td>Over 15,000+ emails to share with your client or team</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.siiimple.com">Siiimple</a></td><td>Minimalist web gallery</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free</td></tr>
+<tr class="resource-row"><td><a href="https://www.mobi.design">Mobbin</a></td><td>Library of hand-picked mobile design</td><td class="type"><span class="tag">UI/UX Inspiration</span></td><td class="price">Free features</td></tr>
+<tr class="resource-row"><td><a href="https://www.newdemos.com">New Demos</a></td><td>Event series in Toronto that showcases unique creations</td><td class="type"><span class="tag">News</span></td><td class="price">Free</td></tr>
+</table>
+
+<!-- Games -->
+<h2 id="games"><i class="fas fa-gamepad"></i> Games</h2>
+<div class="filters">
+    <label for="typeFilterGames">Filter by type :</label>
+    <select id="typeFilterGames" onchange="filterByType('games', this.value)">
+        <option value="All">All</option>
+        <option value="Typography">Typography</option>
+        <option value="Vector">Vector</option>
+        <option value="Color">Color</option>
+    </select>
+
+    <label for="priceFilterGames">Filter by price :</label>
+    <select id="priceFilterGames" onchange="filterByPrice('games', this.value)">
+        <option value="All">All</option>
+        <option value="Free">Free</option>
+        <option value="Free features">Free features</option>
+        <option value="Paid">Paid</option>
+    </select>
+</div>
+<table id="games">
+    <tr><th>Name</th><th>Description</th><th>Type</th><th>Price</th></tr>
+    <tr class="resource-row"><td><a href="https://type.method.ac">Kern Type</a></td><td>Letter spacing game</td><td class="type"><span class="tag">Typography</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://shape.method.ac">Shape Type</a></td><td>Letter shaping game</td><td class="type"><span class="tag">Typography</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://bezier.method.ac">The Bézier Game</a></td><td>A game to help you master the pen tool</td><td class="type"><span class="tag">Vector</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://color.method.ac">Color</a></td><td>Color matching game</td><td class="type"><span class="tag">Color</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://typeconnection.com">Type Connection</a></td><td>A Typographic Dating Game</td><td class="type"><span class="tag">Typography</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="http://www.hexinvaders.com">Hex Invader</a></td><td>The world needs your typically useless skill of hex code knowledge to prevent the invasion!</td><td class="type"><span class="tag">Color</span></td><td class="price">Free</td></tr>    
+</table>
+
+<!-- Plugins -->
+<h2 id="plugins"><i class="fas fa-plug"></i> Plugins</h2>
+<div class="filters">
+    <label for="typeFilterPlugins">Filter by software :</label>
+    <select id="typeFilterPlugins" onchange="filterByType('plugins', this.value)">
+        <option value="All">All</option>
+        <option value="InDesign">InDesign</option>
+        <option value="Photoshop">Photoshop</option>
+        <option value="Illustrator">Illustrator</option>
+        <option value="After Effect">After Effect</option>
+        <option value="Figma">Figma</option>
+    </select>
+
+    <label for="priceFilterPlugins">Filter by price :</label>
+    <select id="priceFilterPlugins" onchange="filterByPrice('plugins', this.value)">
+        <option value="All">All</option>
+        <option value="Free">Free</option>
+        <option value="Freebies">Freebies</option>
+        <option value="Paid">Paid</option>
+    </select>
+</div>
+<table id="plugins">
+    <tr><th>Name</th><th>Description</th><th>Software</th><th>Price</th></tr>
+    <tr class="resource-row"><td><a href="https://exposure.software/eyecandy">Eye Candy</a></td><td>Effects like Animal Fur, Smoke, and Reptile Skin</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://mockible.com">Mockible</a></td><td>Gives you instant access to 4000+ apparel mockups</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://gfxwrld.com/products/stockup-photoshop-plugin">Stockup</a></td><td>This plugin offers a world of imagery right at your fingertips</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://motiondesign.school/products/motion-tools">Motion Design School</a></td><td>Plugin contains only the most necessary functions, which will boost your workflow!</td><td class="type"><span class="tag">After Effect</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://www.adobe.com/products/substance.html">Substance by Adobe</a></td><td>A collection of tools for creating, texturing, and rendering 3D models.</td><td class="type"><span class="tag">Photoshop</span><span class="tag">Substance</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://nikcollection.dxo.com/">Nik Collection</a></td><td>A powerful suite of photo-editing plugins that enhance your creative possibilities.</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.masterfx.com">MasterFX</a></td><td>A plugin that adds professional photo effects to Photoshop.</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.colorgradingcentral.com/">LUT Generator</a></td><td>A plugin to create custom LUTs for color grading.</td><td class="type"><span class="tag">Photoshop</span><span class="tag">After Effects</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://www.pixelsquid.com/">PixelSquid</a></td><td>A plugin for 3D object manipulation and integration into your Photoshop compositions.</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://elements.envato.com/">Envato Elements</a></td><td>Access to thousands of assets including templates, stock photos, and graphics directly in Photoshop and other creative software.</td><td class="type"><span class="tag">Photoshop</span><span class="tag">Illustrator</span><span class="tag">After Effects</span><span class="tag">Premiere Pro</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="http://coolorus.com/">Coolorus</a></td><td>A color wheel plugin for Photoshop that makes color picking easier and more intuitive.</td><td class="type"><span class="tag">Photoshop</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="http://easeandwizz.com/">Ease and Wizz</a></td><td>A plugin for After Effects that helps create more natural and complex animations.</td><td class="type"><span class="tag">After Effects</span></td><td class="price">Free</td></tr>
+    <tr class="resource-row"><td><a href="https://aescripts.com/flow/">Flow</a></td><td>A plugin that lets you animate shapes in a more intuitive way in After Effects.</td><td class="type"><span class="tag">After Effects</span></td><td class="price">Paid</td></tr>
+    <tr class="resource-row"><td><a href="https://runwayml.com">Runway</a></td><td>A creative toolkit that provides AI-powered effects and tools for designers.</td><td class="type"><span class="tag">Figma</span><span class="tag">Photoshop</span><span class="tag">After Effects</span></td><td class="price">Free and Paid options</td></tr>
+</table>
+<button id="backToTop" class="back-to-top" onclick="location.href='#top'">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+</body>
+
+<footer class="footer">
+    <div class="footer-links">
+        <a href="https://instagram.com/bt.dsgn" target="_blank">Instagram</a> ✱
+        <a href="http://figma.com/@brieuc_thomas" target="_blank">Figma</a> ✱
+        <a href="https://linkedin.com/in/brieuc-thomas-b0737b275" target="_blank">LinkedIn</a> ✱
+        <a href="https://www.behance.net/brieuc_thomas" target="_blank">Behance</a> ✱
+        <a href="http://bit.ly/portfolio-brieuc-thomas" target="_blank">Portfolio</a> ✱
+        <a href="mailto:brieuc.thomas@brassart.fr">brieuc.thomas@brassart.fr</a>
+    </div>
+    <p>&copy; 2025 Brieuc Thomas. All rights reserved.</p>
+</footer>
+
+</html>
