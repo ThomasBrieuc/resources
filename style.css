@@ -15,6 +15,7 @@ body {
     font-size: 18px;
     text-align: center;
 }
+
 .search-container {
     display: flex;
     justify-content: center;
@@ -67,7 +68,6 @@ body {
     background-color: #0018a8;
 }
 
-
 /* Cartes des catégories */
 .category-card {
     display: flex;
@@ -81,7 +81,7 @@ body {
     border-radius: 8px;
     font-size: 18px;
     transition: 0.3s ease-in-out;
-    gap: 16px /* Ajoute un espace entre l'icône et le texte */
+    gap: 16px; /* Ajoute un espace entre l'icône et le texte */
 }
 
 .category-card i {
@@ -103,6 +103,10 @@ body {
 .resources-section h2 {
     color: #0023d4;
     margin-bottom: 10px;
+}
+
+.resources-section .resource-name {
+    font-weight: bold; /* Mise en gras des noms des ressources */
 }
 
 /* Uniformisation des tableaux */
@@ -182,14 +186,14 @@ h2 {
     border: 1px solid #0023d4; /* Bordure bleue */
     border-radius: 6px;
     background-color: #ffffff; /* Fond blanc pour le menu déroulant */
-    color: #2D2D2D
+    color: #2D2D2D;
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .filters select:hover {
-    background-color: #ffffff
+    background-color: #ffffff;
 }
 
 .filters select:focus {
@@ -199,7 +203,7 @@ h2 {
 }
 
 .filters select option:hover {
-    background-color: #ffffff bleu pour l'option sélectionnée */
+    background-color: #ffffff; /* bleu pour l'option sélectionnée */
     color: #ffffff; /* Texte blanc pour l'option sélectionnée */
 }
 
@@ -227,9 +231,9 @@ a:active {
 .follow-me a {
     color: #0023d4;
     text-decoration: none;
-    font-weight: small
+    font-weight: small;
     margin: 0 10px;  /* Espacement entre les liens */
-    font-size: 16px /* Taille du texte */
+    font-size: 16px; /* Taille du texte */
     transition: color 0.3s ease;
 }
 
@@ -239,7 +243,7 @@ a:active {
 
 /* Style du footer */
 .footer {
-    color: #0019a8
+    color: #0019a8;
     padding: 20px 0;
     text-align: center;
     font-size: 14px;
@@ -256,7 +260,7 @@ a:active {
     margin: 0 15px;
     font-size: 16px;
     font-weight: bold; /* Lien en gras */
-    transition: color 0.3s ease
+    transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
@@ -303,12 +307,78 @@ footer p {
 
 #backToTop:hover {
     background-color: #0018a8;
-    background-color: ;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .summary-grid {
+        grid-template-columns: 1fr; /* Une seule colonne */
+    }
+}
 
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column; /* Passe en colonne */
+        align-items: stretch; /* Étire les éléments pour qu'ils prennent toute la largeur */
+    }
+}
 
+@media (max-width: 768px) {
+    /* Masquer le premier bloc avec les en-têtes de colonne */
+    tr:first-child {
+        display: none;
+    }
 
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
 
+    tr {
+        display: block;
+        margin-bottom: 10px; /* Espacement entre les lignes */
+        background-color: #f5f5f5; /* Fond gris très clair */
+        border-radius: 8px; /* Coins arrondis */
+        padding: 16px;
+        box-shadow: none; /* Enlève l'ombre de la boîte */
+    }
 
+    th, td {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 8px 0; /* Espacement entre les éléments */
+        border: none; /* Supprime les bordures internes */
+    }
 
+    th {
+        background-color: transparent;
+        color: #0023d4;
+    }
+
+    td {
+        padding-top: 8px; /* Ajoute un peu d'espacement au-dessus du texte dans les td */
+    }
+
+    /* Reajustement des tailles des colonnes */
+    th:nth-child(1), td:nth-child(1),
+    th:nth-child(2), td:nth-child(2),
+    th:nth-child(3), td:nth-child(3),
+    th:nth-child(4), td:nth-child(4) {
+        width: 100%; /* Colonne prend 100% de la largeur */
+        display: block;
+    }
+
+    /* Si tu veux personnaliser l'espacement entre les blocs de lignes */
+    tr:last-child td {
+        border-bottom: none; /* Enlever la bordure du dernier bloc */
+    }
+}
+
+/* Footer - Réduire l'espace entre les liens sur petits écrans */
+@media (max-width: 768px) {
+    .footer-links a {
+        margin: 0 4px; /* Réduit l'espacement entre les liens */
+    }
+}
