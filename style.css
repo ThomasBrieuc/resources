@@ -382,3 +382,18 @@ footer p {
         margin: 0 4px; /* Réduit l'espacement entre les liens */
     }
 }
+
+.title-container {
+    display: flex;          /* Utilise flexbox */
+    justify-content: center; /* Centre le titre */
+    align-items: center;    /* Aligne verticalement */
+    padding: 20px 0;        /* Espacement au-dessus et en dessous */
+}
+
+.title-container h1 {
+    margin: 0;
+    font-size: 3rem;  /* Ajuste la taille */
+    font-weight: bold;   /* Texte en gras */
+    color: #0023d4;      /* Bleu */
+    text-align: center;
+}
