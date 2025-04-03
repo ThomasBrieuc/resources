@@ -318,8 +318,22 @@ footer p {
 
 @media (max-width: 768px) {
     .filters {
-        flex-direction: column; /* Passe en colonne */
-        align-items: stretch; /* Étire les éléments pour qu'ils prennent toute la largeur */
+        display: flex;
+        flex-wrap: wrap; /* Permet de regrouper les éléments en lignes */
+        align-items: flex-start;
+        gap: 8px; /* Espacement par défaut entre les groupes */
+    }
+
+    .filters > * {
+        width: calc(50% - 2px); /* 50% moins la moitié de l'espace entre les éléments */
+    }
+
+    .filters > *:nth-child(2n) {
+        margin-right: 0; /* Empêche le décalage sur le 2e élément du groupe */
+    }
+
+    .filters > *:nth-child(3) {
+        margin-top: 4px; /* Ajoute l'espacement de 8px divisé en deux (4px en haut du second groupe) */
     }
 }
 
@@ -337,8 +351,8 @@ footer p {
 
     tr {
         display: block;
-        margin-bottom: 10px; /* Espacement entre les lignes */
-        background-color: #f5f5f5; /* Fond gris très clair */
+        margin-bottom: 16px; /* Espacement entre les lignes */
+        background-color: #F3F4FE; /* Fond gris très clair */
         border-radius: 8px; /* Coins arrondis */
         padding: 16px;
         box-shadow: none; /* Enlève l'ombre de la boîte */
