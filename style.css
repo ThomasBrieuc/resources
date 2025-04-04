@@ -7,21 +7,6 @@ body {
     text-align: center;
 }
 
-/* ASCII Text in Blue */
-.ascii-title {
-    color: #0023d4; /* Bleu */
-    font-family: monospace;
-    white-space: pre;
-    font-size: 18px;
-    text-align: center;
-}
-
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
 /* Conteneur principal */
 .container {
     max-width: 900px;
@@ -410,4 +395,80 @@ footer p {
     font-weight: bold;   /* Texte en gras */
     color: #0023d4;      /* Bleu */
     text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column; /* Aligne les éléments en colonne (logo + titre) */
+    justify-content: center;
+    align-items: center; /* Centre les éléments horizontalement */
+    width: 100%; /* Prend toute la largeur du conteneur */
+    max-width: 300px; /* Augmente encore la taille maximale du conteneur */
+    height: auto; /* Hauteur automatique */
+    margin: 0 auto; /* Centre le conteneur */
+}
+
+.logo {
+    width: 100%; /* Le logo prend toute la largeur du conteneur */
+    height: auto; /* Garde les proportions */
+    max-width: 250px; /* Augmente la taille maximale du logo */
+}
+
+.logo-title {
+    font-size: 2.2rem; /* Augmente encore la taille du texte */
+    color: #0023d4; /* Couleur bleue pour le titre */
+    font-weight: bold; /* Titre en gras */
+    text-align: center;
+}
+
+.logo-container {
+    text-align: center; /* S'assure que le logo est centré */
+    margin-bottom: 64px; /* Ajoute de la marge en bas du conteneur du logo */
+}
+
+/* Réduction de la taille pour les écrans plus petits */
+@media (max-width: 768px) {
+    .logo {
+        max-width: 220px; /* Augmente légèrement la taille du logo sur les tablettes */
+    }
+
+    .logo-title {
+        font-size: 2rem; /* Augmente encore le texte pour les écrans moyens */
+    }
+}
+
+/* Encore plus grand pour les mobiles */
+@media (max-width: 480px) {
+    .logo {
+        max-width: 200px; /* Ajuste la taille du logo sur les petits écrans */
+    }
+
+    .logo-title {
+        font-size: 1.8rem; /* Augmente la taille du texte sur les petits écrans */
+    }
+}
+
+.intro {
+    padding-top: 60px; /* Ajoute de l'espace en haut avec padding */
+    margin-bottom: 60px; /* Marge en bas pour espacer des éléments suivants */
+}
+
+.intro-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 30px; /* Augmente l'espace entre les paragraphes */
+}
+
+.follow-me {
+    margin-top: 40px; /* Augmente l'espace entre l'intro et le follow */
+}
+
+.follow-me a {
+    text-decoration: none;
+    color: #0023d4;
+    font-weight: bold;
+}
+
+.follow-me a:hover {
+    color: #0044cc;
 }

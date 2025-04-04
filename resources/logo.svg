@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 918 918">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #0019a8;
+      }
+
+      .cls-2 {
+        fill: #0023d4;
+      }
+
+      .cls-3 {
+        fill: url(#Dégradé_sans_nom_15);
+      }
+    </style>
+    <radialGradient id="Dégradé_sans_nom_15" data-name="Dégradé sans nom 15" cx="459" cy="619" fx="459" fy="619" r="459" gradientTransform="translate(0 -160)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0023d4"/>
+      <stop offset="0" stop-color="#0023d4"/>
+      <stop offset=".05" stop-color="#0023d4" stop-opacity=".92"/>
+      <stop offset=".24" stop-color="#0023d4" stop-opacity=".64"/>
+      <stop offset=".42" stop-color="#0023d4" stop-opacity=".41"/>
+      <stop offset=".6" stop-color="#0023d4" stop-opacity=".23"/>
+      <stop offset=".75" stop-color="#0023d4" stop-opacity=".1"/>
+      <stop offset=".89" stop-color="#0023d4" stop-opacity=".03"/>
+      <stop offset="1" stop-color="#0023d4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle class="cls-3" cx="459" cy="459" r="459"/>
+  <g>
+    <path class="cls-1" d="M483,325.3h0c0-14.3-11.6-25.9-25.9-25.9h-225.7c-14.3,0-25.9,11.6-25.9,25.9v335.9c0,14.3,11.6,25.9,25.9,25.9h455.1c14.3,0,25.9-11.6,25.9-25.9v-284.2c0-14.3-11.6-25.9-25.9-25.9h-177.7c-14.3,0-25.9-11.6-25.9-25.9h0l.1.1Z"/>
+    <path class="cls-2" d="M740.2,409.1v284.2c0,14.3-11.6,25.9-25.9,25.9h-455.1c-14.3,0-25.9-11.6-25.9-25.9v-284.2c0-14.3,11.6-25.9,25.9-25.9h455.1c14.3,0,25.9,11.6,25.9,25.9h0Z"/>
+  </g>
+</svg>
